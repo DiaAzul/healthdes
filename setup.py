@@ -5,12 +5,12 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="healthdes", # Replace with your own username
-    version="0.0.1",
+    version="0.0.2",
     author="David Plummer",
     author_email="david.plummer@tanzo.org",
-    license="BSD 3-Clause"
-    keywords="library simulation healthcare health care hospital"
-    description="HealthDES - A python library to support discrete event simulation in health and social care",
+    license="BSD 3-Clause",
+    keywords="library simulation healthcare health care hospital",
+    description="A python library to support discrete event simulation in health and social care",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/DiaAzul/healthdes",
@@ -18,7 +18,7 @@ setuptools.setup(
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",        
         "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: BSD 3-Clause License",
+        "License :: OSI Approved :: BSD License",
         "Operating System :: OS Independent",
         "Intended Audience :: Healthcare Industry",
         "Topic :: Software Development :: Libraries"
