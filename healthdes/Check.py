@@ -1,4 +1,15 @@
 """ HealthDES - A python library to support discrete event simulation in health and social care """
+from typing import (
+    TYPE_CHECKING,
+    ClassVar,
+    ContextManager,
+    Generic,
+    MutableSequence,
+    Optional,
+    Type,
+    TypeVar,
+    Union,
+)
 
 
 class Check:
@@ -10,7 +21,7 @@ class Check:
      float, string) to confirm data integrity.
     """
     @staticmethod
-    def is_equal_to_zero(x):
+    def is_equal_to_zero(x: Union[int, float]) -> None:
         """Check that variable is equal to zero.
 
         Args:
@@ -26,7 +37,7 @@ class Check:
             raise ValueError('value must be equal to zero')
 
     @staticmethod
-    def is_not_equal_to_zero(x):
+    def is_not_equal_to_zero(x: Union[int, float]) -> None:
         """Check that variable is not equal to zero.
 
         Args:
@@ -42,7 +53,7 @@ class Check:
             raise ValueError('value must not equal zero')
 
     @staticmethod
-    def is_greater_than_zero(x):
+    def is_greater_than_zero(x: Union[int, float]) -> None:
         """Check that variable is greater than zero.
 
         Args:
@@ -58,7 +69,7 @@ class Check:
             raise ValueError('value must be greater than zero')
 
     @staticmethod
-    def is_greater_than_or_equal_to_zero(x):
+    def is_greater_than_or_equal_to_zero(x: Union[int, float]) -> None:
         """Check that variable is greater than or equal to zero.
 
         Args:
@@ -74,7 +85,7 @@ class Check:
             raise ValueError('value must be greater than, or equal to, zero')
 
     @staticmethod
-    def is_less_than_zero(x):
+    def is_less_than_zero(x: Union[int, float]) -> None:
         """Check that variable is less than zero.
 
         Args:
@@ -90,7 +101,7 @@ class Check:
             raise ValueError('value must be less than zero')
 
     @staticmethod
-    def is_less_than_or_equal_to_zero(x):
+    def is_less_than_or_equal_to_zero(x: Union[int, float]) -> None:
         """Check that variable is less than or equal to zero.
 
         Args:

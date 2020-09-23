@@ -4,6 +4,18 @@ import yaml
 import inspect
 import sys
 
+from typing import (
+    TYPE_CHECKING,
+    ClassVar,
+    ContextManager,
+    Generic,
+    MutableSequence,
+    Optional,
+    Type,
+    TypeVar,
+    Union,
+)
+
 
 class ActivityBase():
     """Person's activity within the system, models interaction between people and environment """
@@ -45,7 +57,7 @@ class ActivityBase():
         success_message: ended
     """), Loader=yaml.SafeLoader)
 
-    def __init__(self, simulation_params, **kwargs):
+    def __init__(self, simulation_params, **kwargs) -> None:
         """Create a new activity
 
         Arguments:
@@ -62,10 +74,10 @@ class ActivityBase():
 
         self.unpack_parameters(**kwargs)
 
-    def unpack_parameters(self, **kwargs):
+    def unpack_parameters(self, **kwargs) -> None:
         pass
 
-    def run(self):
+    def run(self) -> None:
         """Run the event loop for the activity
 
         The event loop dispatches events in response to communication from the person class
@@ -101,8 +113,8 @@ class ActivityBase():
             if not function_dict.get(action, None):
                 raise ValueError(f'Activity function {action} missing')
 
-            # Check whether subclassed method is a generator, which requires different
-            # calling pattern
+            # Check whether subclassed method is a generator, which requires
+            # different calling pattern
             if inspect.isgeneratorfunction(function_dict.get(action)):
                 for result in function_dict.get(action)():
                     pass
@@ -115,28 +127,28 @@ class ActivityBase():
 
             finished = True if state == 'ended' else finished
 
-    def nop(self):
+    def nop(self) -> None:
         pass
 
-    def initialise(self):
+    def initialise(self) -> None:
         pass
 
-    def seize_resources_and_execute(self):
+    def seize_resources_and_execute(self) -> None:
         self.seize_resources()
         self.execute()
 
-    def seize_resources(self):
+    def seize_resources(self) -> None:
         pass
 
-    def execute(self):
+    def execute(self) -> None:
         pass
 
-    def release_resources_and_end(self):
+    def release_resources_and_end(self) -> None:
         self.release_resources()
         self.end()
 
-    def release_resources(self):
+    def release_resources(self) -> None:
         pass
 
-    def end(self):
+    def end(self) -> None:
         pass
